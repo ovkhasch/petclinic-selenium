@@ -8,15 +8,15 @@ import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 //import org.openqa.selenium.firefox.FirefoxDriver;
-//import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-import org.openqa.selenium.phantomjs.PhantomJSDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
+//import org.openqa.selenium.phantomjs.PhantomJSDriver;
+//import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class PetClinicTest {
   //private WebDriver driver;
-  private PhantomJSDriver driver;
+  private ChromeDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
