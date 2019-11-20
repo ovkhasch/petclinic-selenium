@@ -27,7 +27,7 @@ public class PetClinicTest {
 //	DesiredCapabilities capabilities = DesiredCapabilities.phantomjs();
 //    driver = new PhantomJSDriver(capabilities);
     baseUrl = "https://stagemonitor-demo.isys-software.de";
-    driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
   }
 
   @Test
