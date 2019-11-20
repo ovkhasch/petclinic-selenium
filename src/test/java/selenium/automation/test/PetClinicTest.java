@@ -23,11 +23,11 @@ public class PetClinicTest {
 
   @Before
   public void setUp() throws Exception {
-    //driver = new ChromeDriver();
-	DesiredCapabilities capabilities = DesiredCapabilities.phantomjs();
-    driver = new PhantomJSDriver(capabilities);
-    baseUrl = "http://172.17.0.3:9966/";
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    driver = new ChromeDriver();
+//	DesiredCapabilities capabilities = DesiredCapabilities.phantomjs();
+//    driver = new PhantomJSDriver(capabilities);
+    baseUrl = "https://stagemonitor-demo.isys-software.de";
+    driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
   }
 
   @Test
