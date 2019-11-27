@@ -44,7 +44,7 @@
         <longProp name="ThreadGroup.end_time">1361531541000</longProp>
         <boolProp name="ThreadGroup.scheduler">false</boolProp>
         <stringProp name="ThreadGroup.duration"></stringProp>
-        <stringProp name="ThreadGroup.delay"></stringProp>
+        <stringProp name="ThreadGroup.delay">120</stringProp>
         <boolProp name="ThreadGroup.delayedStart">true</boolProp>
         <stringProp name="TestPlan.comments">Original : 500 - 10 - 10</stringProp>
       </ThreadGroup>
