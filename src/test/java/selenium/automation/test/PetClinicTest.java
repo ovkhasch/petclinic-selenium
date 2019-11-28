@@ -31,7 +31,8 @@ public class PetClinicTest {
   }
 
   @Test
-  public void testPetClinic() throws Exception {
+  @DisplayName("New Owner Creation use case is tested by populating all the fields and submitting the form")
+  public void testNewOwnerForm() throws Exception {
     driver.get(baseUrl + "/petclinic/");
     driver.findElement(By.cssSelector("li:nth-child(3) span:nth-child(2)")).click(); // Find owners
     driver.findElement(By.linkText("Add Owner")).click();
