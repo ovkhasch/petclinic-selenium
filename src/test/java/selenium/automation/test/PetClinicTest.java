@@ -26,7 +26,8 @@ public class PetClinicTest {
     driver = new ChromeDriver();
 //	DesiredCapabilities capabilities = DesiredCapabilities.phantomjs();
 //    driver = new PhantomJSDriver(capabilities);
-    baseUrl = "http://ec2-3-232-123-215.compute-1.amazonaws.com:31090";
+//    baseUrl = "http://ec2-3-232-123-215.compute-1.amazonaws.com:31090";
+    baseUrl = System.getProperty("petclinicUrl");
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
   }
 
