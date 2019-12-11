@@ -33,6 +33,10 @@ public class PetClinicTest {
 
   @Test
   public void testNewOwnerForm() throws Exception {
+    if (baseUrl == null || baseUrl.isEmpty()) {
+      fail("Empty base URL");
+    }
+    
     driver.get(baseUrl + "/petclinic/");
     driver.findElement(By.cssSelector("li:nth-child(3) span:nth-child(2)")).click(); // Find owners
     driver.findElement(By.linkText("Add Owner")).click();
