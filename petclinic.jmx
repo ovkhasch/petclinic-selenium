@@ -9,17 +9,17 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="PETCLINIC_HOST" elementType="Argument">
             <stringProp name="Argument.name">PETCLINIC_HOST</stringProp>
-            <stringProp name="Argument.value">ec2-3-232-123-215.compute-1.amazonaws.com</stringProp>
+            <stringProp name="Argument.value">${__P(petclinicHost, ec2-3-232-123-215.compute-1.amazonaws.com)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="PETCLINIC_PORT" elementType="Argument">
             <stringProp name="Argument.name">PETCLINIC_PORT</stringProp>
-            <stringProp name="Argument.value">31090</stringProp>
+            <stringProp name="Argument.value">${__P(petclinicPort, 31090)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="PETCLINIC_PROTOCOL" elementType="Argument">
             <stringProp name="Argument.name">PETCLINIC_PROTOCOL</stringProp>
-            <stringProp name="Argument.value">http</stringProp>
+            <stringProp name="Argument.value">${__P(petclinicProtocol, http)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="CONTEXT_WEB" elementType="Argument">
