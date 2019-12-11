@@ -30,7 +30,7 @@ public class PetClinicTest {
 //    driver = new PhantomJSDriver(capabilities);
 //    baseUrl = "http://ec2-3-232-123-215.compute-1.amazonaws.com:31090";
     baseUrl = System.getProperty("petclinicUrl");
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
   }
 
   @Test
@@ -39,7 +39,11 @@ public class PetClinicTest {
       fail("Empty base URL");
     }
         
-    driver.get(baseUrl);
+    driver.get("https://ecs-petclinic.kaiburr.com:8888/");
+    driver.manage().window().setSize(new Dimension(1366, 720));
+    driver.findElement(By.cssSelector("li:nth-child(3) span:nth-child(2)")).click();
+/*
+    driver.get(baseUrl);    
     WebDriverWait wait = new WebDriverWait(driver, 100);
     wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("li:nth-child(3) span:nth-child(2)")));  
     driver.findElement(By.cssSelector("li:nth-child(3) span:nth-child(2)")).click(); // Find owners
@@ -59,7 +63,7 @@ public class PetClinicTest {
 //    driver.findElement(By.linkText("Find owners")).click();
     driver.findElement(By.name("lastName")).clear();
     driver.findElement(By.name("lastName")).sendKeys("chedde");
-    driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
+    driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();*/
   }
 
   @After
