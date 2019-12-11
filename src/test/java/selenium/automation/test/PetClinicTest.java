@@ -38,7 +38,7 @@ public class PetClinicTest {
     }
         
     driver.get(baseUrl);
-    driver.manage().window().setSize(new Dimension(1366, 720));
+    wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("li:nth-child(3) span:nth-child(2)")));  
     driver.findElement(By.cssSelector("li:nth-child(3) span:nth-child(2)")).click(); // Find owners
     driver.findElement(By.linkText("Add Owner")).click();
     driver.findElement(By.id("firstName")).clear();
