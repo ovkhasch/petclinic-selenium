@@ -39,10 +39,6 @@ public class PetClinicTest {
       fail("Empty base URL");
     }
         
-    driver.get("https://ecs-petclinic.kaiburr.com:8888/");
-    driver.manage().window().setSize(new Dimension(1366, 720));
-    driver.findElement(By.cssSelector("li:nth-child(3) span:nth-child(2)")).click();
-/*
     driver.get(baseUrl);    
     WebDriverWait wait = new WebDriverWait(driver, 100);
     wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("li:nth-child(3) span:nth-child(2)")));  
@@ -63,7 +59,7 @@ public class PetClinicTest {
 //    driver.findElement(By.linkText("Find owners")).click();
     driver.findElement(By.name("lastName")).clear();
     driver.findElement(By.name("lastName")).sendKeys("chedde");
-    driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();*/
+    driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
   }
 
   @After
