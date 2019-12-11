@@ -38,10 +38,10 @@ public class PetClinicTest {
     if (baseUrl == null || baseUrl.isEmpty()) {
       fail("Empty base URL");
     }
-        
+    System.out.println("Base URL: " + baseUrl);
+    
     driver.get(baseUrl);    
-    WebDriverWait wait = new WebDriverWait(driver, 100);
-    wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("li:nth-child(3) span:nth-child(2)")));  
+    driver.manage().window().setSize(new Dimension(1366, 720));
     driver.findElement(By.cssSelector("li:nth-child(3) span:nth-child(2)")).click(); // Find owners
     driver.findElement(By.linkText("Add Owner")).click();
     driver.findElement(By.id("firstName")).clear();
