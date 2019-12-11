@@ -38,6 +38,7 @@ public class PetClinicTest {
     }
         
     driver.get(baseUrl);
+    WebDriverWait wait = new WebDriverWait(driver, 100);
     wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("li:nth-child(3) span:nth-child(2)")));  
     driver.findElement(By.cssSelector("li:nth-child(3) span:nth-child(2)")).click(); // Find owners
     driver.findElement(By.linkText("Add Owner")).click();
