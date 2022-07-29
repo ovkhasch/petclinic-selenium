@@ -1,6 +1,7 @@
 package selenium.automation.test;
 
 
+import java.net.URL;
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 import org.junit.*;
@@ -10,6 +11,8 @@ import org.openqa.selenium.*;
 //import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -19,17 +22,21 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class PetClinicTest {
   //private WebDriver driver;
-  private ChromeDriver driver;
+  private WebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
 
   @Before
   public void setUp() throws Exception {
-    ChromeOptions options = new ChromeOptions();
-    options.addArguments("--headless", "--disable-gpu", "--remote-debugging-port=9222");
-    driver = new ChromeDriver(options);
-//	DesiredCapabilities capabilities = DesiredCapabilities.phantomjs();
+
+    String remote_url_chrome = "http://localhost:4444/";
+    driver = new RemoteWebDriver(new URL(remote_url_chrome), DesiredCapabilities.chrome());
+//    ChromeOptions options = new ChromeOptions();
+//    options.addArguments("--headless", "--disable-gpu", "--remote-debugging-port=9222");
+//    driver = new ChromeDriver(options);
+
+    //	DesiredCapabilities capabilities = DesiredCapabilities.phantomjs();
 //    driver = new PhantomJSDriver(capabilities);
 //    baseUrl = "http://ec2-3-232-123-215.compute-1.amazonaws.com:31090";
     baseUrl = System.getProperty("petclinicUrl");
