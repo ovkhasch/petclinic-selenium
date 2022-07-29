@@ -63,8 +63,10 @@ public class PetClinicTest {
     
     driver.get(baseUrl);    
     driver.manage().window().setSize(new Dimension(1366, 720));
-    driver.get(baseUrl + "/owners/find");
     File screenshot = driver.getScreenshotAs(OutputType.FILE);
+    FileUtils.copyFile(screenshot, new File("screenshot0.png"));
+    driver.get(baseUrl + "/owners/find");
+    screenshot = driver.getScreenshotAs(OutputType.FILE);
     FileUtils.copyFile(screenshot, new File("screenshot1.png"));
 
     //driver.findElement(By.cssSelector("li:nth-child(3) span:nth-child(2)")).click(); // Find owners
