@@ -1,9 +1,12 @@
 package selenium.automation.test;
 
 
+import java.io.File;
 import java.net.URL;
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.io.FileUtils;
 import org.junit.*;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
@@ -60,7 +63,9 @@ public class PetClinicTest {
     driver.get(baseUrl);    
     driver.manage().window().setSize(new Dimension(1366, 720));
     driver.get(baseUrl + "/owners/find");
-    driver.getScreenshotAs(OutputType.FILE);
+    File screenshot = driver.getScreenshotAs(OutputType.FILE);
+    FileUtils.copyFile(screenshot, new File("screenshot1.png"));
+
     //driver.findElement(By.cssSelector("li:nth-child(3) span:nth-child(2)")).click(); // Find owners
     driver.findElement(By.linkText("Add Owner")).click();
     driver.findElement(By.id("firstName")).clear();
