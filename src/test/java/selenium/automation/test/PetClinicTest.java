@@ -44,11 +44,11 @@ public class PetClinicTest {
     //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
   }
 
-  public<T> Object getScreenshotAs(OutputType<T> outputType) {
-    Augmenter augmenter = new Augmenter();
-    TakesScreenshot ts = (TakesScreenshot) augmenter.augment(driver);
-    return ts.getScreenshotAs(outputType);
-  }
+//  public<T> Object getScreenshotAs(OutputType<T> outputType) {
+//    Augmenter augmenter = new Augmenter();
+//    TakesScreenshot ts = (TakesScreenshot) augmenter.augment(driver);
+//    return ts.getScreenshotAs(outputType);
+//  }
 
   @Test
   public void testNewOwnerForm() throws Exception {
@@ -60,7 +60,7 @@ public class PetClinicTest {
     driver.get(baseUrl);    
     driver.manage().window().setSize(new Dimension(1366, 720));
     driver.get(baseUrl + "/owners/find");
-    getScreenshotAs(OutputType.FILE);
+    driver.getScreenshotAs(OutputType.FILE);
     //driver.findElement(By.cssSelector("li:nth-child(3) span:nth-child(2)")).click(); // Find owners
     driver.findElement(By.linkText("Add Owner")).click();
     driver.findElement(By.id("firstName")).clear();
