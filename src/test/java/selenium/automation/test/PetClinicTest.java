@@ -11,6 +11,7 @@ import org.openqa.selenium.*;
 //import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.Augmenter;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -43,6 +44,12 @@ public class PetClinicTest {
     //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
   }
 
+  public<T> Object getScreenshotAs(OutputType<T> outputType) {
+    Augmenter augmenter = new Augmenter();
+    TakesScreenshot ts = (TakesScreenshot) augmenter.augment(driver);
+    return ts.getScreenshotAs(outputType);
+  }
+
   @Test
   public void testNewOwnerForm() throws Exception {
     if (baseUrl == null || baseUrl.isEmpty()) {
@@ -53,6 +60,7 @@ public class PetClinicTest {
     driver.get(baseUrl);    
     driver.manage().window().setSize(new Dimension(1366, 720));
     driver.get(baseUrl + "/owners/find");
+    getScreenshotAs(OutputType.FILE);
     //driver.findElement(By.cssSelector("li:nth-child(3) span:nth-child(2)")).click(); // Find owners
     driver.findElement(By.linkText("Add Owner")).click();
     driver.findElement(By.id("firstName")).clear();
