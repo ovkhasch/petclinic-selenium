@@ -3,6 +3,7 @@ package selenium.automation.test;
 
 import java.io.File;
 import java.net.URL;
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
@@ -84,6 +85,10 @@ public class PetClinicTest {
     
     driver.get(baseUrl);    
     driver.manage().window().setSize(new Dimension(1366, 720));
+
+    new WebDriverWait(driver, Duration.ofMillis(20000)).until(
+            webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+
     File screenshot = driver.getScreenshotAs(OutputType.FILE);
     FileUtils.copyFile(screenshot, new File("screenshot0.png"));
     driver.get(baseUrl + "/owners/find");
