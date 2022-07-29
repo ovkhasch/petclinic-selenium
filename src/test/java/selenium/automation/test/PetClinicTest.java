@@ -27,8 +27,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 //import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class PetClinicTest {
-  //private WebDriver driver;
-  private ChromeDriver driver;
+  private WebDriver driver;
+  //private ChromeDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
@@ -36,10 +36,16 @@ public class PetClinicTest {
   @Before
   public void setUp() throws Exception {
 
-    String remote_url_chrome = "http://localhost:4444/";
     ChromeOptions chromeOptions = new ChromeOptions();
+
+//    String webDriverUrl = "http://localhost:4444/";
+    String webDriverUrl = System.getProperty("webDriverUrl");
+    if (webDriverUrl != null) {
+      driver = new RemoteWebDriver(new URL(webDriverUrl), chromeOptions);
+    } else {
+      driver = new ChromeDriver(chromeOptions);
+    }
     //options.addArguments("--headless", "--disable-gpu");
-    //driver = new RemoteWebDriver(new URL(remote_url_chrome), options);
     //options.addArguments("--headless", "--disable-gpu", "--remote-debugging-port=9222");
 
 //    HashMap<String, Object> chromePrefs = new HashMap<>();
@@ -61,7 +67,6 @@ public class PetClinicTest {
 //    chromeOptions.addArguments("high-dpi-support=0.65");
 //    chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 
-    driver = new ChromeDriver(chromeOptions);
 
     //	DesiredCapabilities capabilities = DesiredCapabilities.phantomjs();
 //    driver = new PhantomJSDriver(capabilities);
