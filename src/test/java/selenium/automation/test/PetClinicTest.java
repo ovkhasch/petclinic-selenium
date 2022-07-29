@@ -27,7 +27,7 @@ public class PetClinicTest {
   @Before
   public void setUp() throws Exception {
     ChromeOptions options = new ChromeOptions();
-    options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200", "--no-sandbox", "--disable-dev-shm-usage");
+    options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200", "--no-sandbox", "--disable-dev-shm-usage", "--disable-extensions", "disable-infobars", "start-maximized");
     driver = new ChromeDriver(options);
 //	DesiredCapabilities capabilities = DesiredCapabilities.phantomjs();
 //    driver = new PhantomJSDriver(capabilities);
