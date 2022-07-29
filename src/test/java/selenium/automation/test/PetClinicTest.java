@@ -27,7 +27,7 @@ public class PetClinicTest {
   @Before
   public void setUp() throws Exception {
     ChromeOptions options = new ChromeOptions();
-    options.addArguments("--headless", "--disable-gpu", "--remote-debugging-port=9222", "--no-sandbox");
+    options.addArguments("--headless", "--disable-gpu", "--remote-debugging-port=9222");
     driver = new ChromeDriver(options);
 //	DesiredCapabilities capabilities = DesiredCapabilities.phantomjs();
 //    driver = new PhantomJSDriver(capabilities);
