@@ -3,6 +3,7 @@ package selenium.automation.test;
 
 import java.io.File;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 
@@ -35,11 +36,31 @@ public class PetClinicTest {
   public void setUp() throws Exception {
 
     String remote_url_chrome = "http://localhost:4444/";
-    ChromeOptions options = new ChromeOptions();
+    ChromeOptions chromeOptions = new ChromeOptions();
     //options.addArguments("--headless", "--disable-gpu");
     //driver = new RemoteWebDriver(new URL(remote_url_chrome), options);
-    options.addArguments("--headless", "--disable-gpu", "--remote-debugging-port=9222");
-    driver = new ChromeDriver(options);
+    //options.addArguments("--headless", "--disable-gpu", "--remote-debugging-port=9222");
+
+    HashMap<String, Object> chromePrefs = new HashMap<>();
+    chromePrefs.put("profile.default_content_settings.popups", 0);
+    chromePrefs.put("intl.accept_languages", "English");
+    chromeOptions.setExperimentalOption("prefs", chromePrefs);
+
+    chromeOptions.addArguments("--no-sandbox");
+    chromeOptions.addArguments("enable-automation");
+    chromeOptions.addArguments("--headless"); //should be enabled for Jenkins
+    chromeOptions.addArguments("--disable-dev-shm-usage"); //should be enabled for Jenkins
+    chromeOptions.addArguments("--window-size=1920x1080"); //should be enabled for Jenkins
+    chromeOptions.addArguments("--disable-notifications");
+    chromeOptions.addArguments("--disable-extenstions");
+    chromeOptions.addArguments("--disable-gpu");
+    chromeOptions.addArguments("--dns-prefetch-disable");
+    chromeOptions.addArguments("disable-infobars");
+    chromeOptions.addArguments("force-device-scale-factor=0.65");
+    chromeOptions.addArguments("high-dpi-support=0.65");
+    chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+
+    driver = new ChromeDriver(chromeOptions);
 
     //	DesiredCapabilities capabilities = DesiredCapabilities.phantomjs();
 //    driver = new PhantomJSDriver(capabilities);
