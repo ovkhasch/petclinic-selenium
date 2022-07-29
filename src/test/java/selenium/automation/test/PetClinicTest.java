@@ -32,7 +32,7 @@ public class PetClinicTest {
   public void setUp() throws Exception {
 
     String remote_url_chrome = "http://localhost:4444/";
-    driver = new RemoteWebDriver(new URL(remote_url_chrome), new DesiredCapabilities());
+    driver = new RemoteWebDriver(new URL(remote_url_chrome), new ChromeOptions());
 //    ChromeOptions options = new ChromeOptions();
 //    options.addArguments("--headless", "--disable-gpu", "--remote-debugging-port=9222");
 //    driver = new ChromeDriver(options);
