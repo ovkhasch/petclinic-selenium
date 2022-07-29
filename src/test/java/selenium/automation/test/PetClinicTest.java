@@ -36,7 +36,7 @@ public class PetClinicTest {
 
     String remote_url_chrome = "http://localhost:4444/";
     ChromeOptions options = new ChromeOptions();
-    options.addArguments("--disable-gpu");
+    options.addArguments("--headless", "--disable-gpu");
     driver = new RemoteWebDriver(new URL(remote_url_chrome), options);
 //    options.addArguments("--headless", "--disable-gpu", "--remote-debugging-port=9222");
 //    driver = new ChromeDriver(options);
