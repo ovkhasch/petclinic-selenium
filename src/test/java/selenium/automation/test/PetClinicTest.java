@@ -26,7 +26,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class PetClinicTest {
   //private WebDriver driver;
-  private RemoteWebDriver driver;
+  private ChromeDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
@@ -36,10 +36,10 @@ public class PetClinicTest {
 
     String remote_url_chrome = "http://localhost:4444/";
     ChromeOptions options = new ChromeOptions();
-    options.addArguments("--headless", "--disable-gpu");
-    driver = new RemoteWebDriver(new URL(remote_url_chrome), options);
-//    options.addArguments("--headless", "--disable-gpu", "--remote-debugging-port=9222");
-//    driver = new ChromeDriver(options);
+    //options.addArguments("--headless", "--disable-gpu");
+    //driver = new RemoteWebDriver(new URL(remote_url_chrome), options);
+    options.addArguments("--headless", "--disable-gpu", "--remote-debugging-port=9222");
+    driver = new ChromeDriver(options);
 
     //	DesiredCapabilities capabilities = DesiredCapabilities.phantomjs();
 //    driver = new PhantomJSDriver(capabilities);
