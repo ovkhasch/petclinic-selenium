@@ -42,24 +42,24 @@ public class PetClinicTest {
     //driver = new RemoteWebDriver(new URL(remote_url_chrome), options);
     //options.addArguments("--headless", "--disable-gpu", "--remote-debugging-port=9222");
 
-    HashMap<String, Object> chromePrefs = new HashMap<>();
-    chromePrefs.put("profile.default_content_settings.popups", 0);
-    chromePrefs.put("intl.accept_languages", "English");
-    chromeOptions.setExperimentalOption("prefs", chromePrefs);
-
-    chromeOptions.addArguments("--no-sandbox");
-    chromeOptions.addArguments("enable-automation");
-    chromeOptions.addArguments("--headless"); //should be enabled for Jenkins
-    chromeOptions.addArguments("--disable-dev-shm-usage"); //should be enabled for Jenkins
-    chromeOptions.addArguments("--window-size=1920x1080"); //should be enabled for Jenkins
-    chromeOptions.addArguments("--disable-notifications");
-    chromeOptions.addArguments("--disable-extenstions");
-    chromeOptions.addArguments("--disable-gpu");
-    chromeOptions.addArguments("--dns-prefetch-disable");
-    chromeOptions.addArguments("disable-infobars");
-    chromeOptions.addArguments("force-device-scale-factor=0.65");
-    chromeOptions.addArguments("high-dpi-support=0.65");
-    chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+//    HashMap<String, Object> chromePrefs = new HashMap<>();
+//    chromePrefs.put("profile.default_content_settings.popups", 0);
+//    chromePrefs.put("intl.accept_languages", "English");
+//    chromeOptions.setExperimentalOption("prefs", chromePrefs);
+//
+//    chromeOptions.addArguments("--no-sandbox");
+//    chromeOptions.addArguments("enable-automation");
+//    chromeOptions.addArguments("--headless"); //should be enabled for Jenkins
+//    chromeOptions.addArguments("--disable-dev-shm-usage"); //should be enabled for Jenkins
+//    chromeOptions.addArguments("--window-size=1920x1080"); //should be enabled for Jenkins
+//    chromeOptions.addArguments("--disable-notifications");
+//    chromeOptions.addArguments("--disable-extenstions");
+//    chromeOptions.addArguments("--disable-gpu");
+//    chromeOptions.addArguments("--dns-prefetch-disable");
+//    chromeOptions.addArguments("disable-infobars");
+//    chromeOptions.addArguments("force-device-scale-factor=0.65");
+//    chromeOptions.addArguments("high-dpi-support=0.65");
+//    chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 
     driver = new ChromeDriver(chromeOptions);
 
@@ -86,16 +86,10 @@ public class PetClinicTest {
     driver.get(baseUrl);    
     driver.manage().window().setSize(new Dimension(1366, 720));
 
-    new WebDriverWait(driver, Duration.ofMillis(20000)).until(
-            webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+//    File screenshot = driver.getScreenshotAs(OutputType.FILE);
+//    FileUtils.copyFile(screenshot, new File("screenshot0.png"));
 
-    File screenshot = driver.getScreenshotAs(OutputType.FILE);
-    FileUtils.copyFile(screenshot, new File("screenshot0.png"));
-    driver.get(baseUrl + "/owners/find");
-    screenshot = driver.getScreenshotAs(OutputType.FILE);
-    FileUtils.copyFile(screenshot, new File("screenshot1.png"));
-
-    //driver.findElement(By.cssSelector("li:nth-child(3) span:nth-child(2)")).click(); // Find owners
+    driver.findElement(By.cssSelector("li:nth-child(3) span:nth-child(2)")).click(); // Find owners
     driver.findElement(By.linkText("Add Owner")).click();
     driver.findElement(By.id("firstName")).clear();
     driver.findElement(By.id("firstName")).sendKeys("siva");
@@ -108,8 +102,7 @@ public class PetClinicTest {
     driver.findElement(By.id("telephone")).clear();
     driver.findElement(By.id("telephone")).sendKeys("99999");
     driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
-    driver.get(baseUrl + "/owners/find");
-    //driver.findElement(By.cssSelector("li:nth-child(3) span:nth-child(2)")).click(); // Find owners
+    driver.findElement(By.cssSelector("li:nth-child(3) span:nth-child(2)")).click(); // Find owners
 //    driver.findElement(By.linkText("Find owners")).click();
     driver.findElement(By.name("lastName")).clear();
     driver.findElement(By.name("lastName")).sendKeys("chedde");
