@@ -9,6 +9,7 @@ import static org.hamcrest.CoreMatchers.*;
 import org.openqa.selenium.*;
 //import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -25,7 +26,9 @@ public class PetClinicTest {
 
   @Before
   public void setUp() throws Exception {
-    driver = new ChromeDriver();
+    ChromeOptions options = new ChromeOptions();
+    options.addArguments("--headless", "--disable-gpu", "--window-size=1920,1200");
+    driver = new ChromeDriver(options);
 //	DesiredCapabilities capabilities = DesiredCapabilities.phantomjs();
 //    driver = new PhantomJSDriver(capabilities);
 //    baseUrl = "http://ec2-3-232-123-215.compute-1.amazonaws.com:31090";
