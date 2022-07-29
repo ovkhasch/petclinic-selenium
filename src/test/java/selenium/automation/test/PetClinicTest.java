@@ -23,7 +23,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class PetClinicTest {
   //private WebDriver driver;
-  private WebDriver driver;
+  private RemoteWebDriver driver;
   private String baseUrl;
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
